@@ -10,5 +10,5 @@ export default DS.Model.extend({
   fullName: Ember.computed('firstName', 'lastName', function() {
   	return this.get('firstName') + ' Jean ' + this.get('lastName');
   }),
-  articles: DS.hasMany('articles'),
+  articles: DS.hasMany('articles')
 });

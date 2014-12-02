@@ -9,7 +9,7 @@ export default Ember.Route.extend({
 	actions: {
 		save: function() {
 			var _this = this,
-			model = this.modelFor('articles/new');
+					model = this.modelFor('articles/new');
 
 			model.save().then(function() {
 				_this.transitionTo('articles');
@@ -17,6 +17,12 @@ export default Ember.Route.extend({
 		},
 		cancel: function() {
 			this.transitionTo('articles');
+		}
+	},
+	deactivate: function() {
+		var model = this.modelFor('articles/new');
+		if (model.get('isNew')) {
+			model.destroyRecord();
 		}
 	}
 });

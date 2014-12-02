@@ -8,5 +8,10 @@ export default Ember.Route.extend({
 			email: 'jackjafferson@oss.fr',
 			twitter: 'oss283'
 		});
+	},
+	deactivate: function() {
+		if (model.get('isNew')) {
+			model.destroyRecord();
+		}
 	}
 });
